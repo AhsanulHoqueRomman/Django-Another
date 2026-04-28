@@ -14,3 +14,6 @@ class application(models.Model):
     image = models.ImageField(upload_to='media/')
     date = models.DateTimeField(default=timezone.now)
     chaType = models.CharField(max_length=2,choices=CHA_TYPE_CHOICE)
+
+    def __str__(self):
+        return self.name
