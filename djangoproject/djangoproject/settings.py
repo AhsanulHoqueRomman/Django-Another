@@ -46,7 +46,7 @@ INSTALLED_APPS = [
 TAILWIND_APP_NAME = 'theme'
 INTERNAL_IPS = ['127.0.0.1']
 
-NPM_BIN_PATH = 'C:\Program Files\nodejs\npm.cmd'            #only need this line if Django can’t find npm automatically.If this command: npm -v works on terminal then we can skip this path declare!
+NPM_BIN_PATH ='C:\Program Files\nodejs\npm.cmd'            #only need this line if Django can’t find npm automatically.If this command: npm -v works on terminal then we can skip this path declare!
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -127,3 +127,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR,'static')]
+
+
+MEDIA_URL= '/media/'
+MEDIA_ROOT =os.path.join(BASE_DIR, 'media')

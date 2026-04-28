@@ -11,7 +11,7 @@ class application(models.Model):
         ('AC','Ada Cha'),
     ]
     name = models.CharField(max_length=100)
-    image = models.ImageField(upload_to='media/')
+    image = models.ImageField(upload_to='images/')
     date = models.DateTimeField(default=timezone.now)
     chaType = models.CharField(max_length=2,choices=CHA_TYPE_CHOICE)
 

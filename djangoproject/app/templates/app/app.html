@@ -5,5 +5,14 @@ App Page
 {% endblock %}
 
 {% block content %}
-<h1>This is the App page.</h1>
+<h1>This is the Cha page.</h1>
+
+{% for chai in cha  %}
+<div class="cha-item">
+    <img src="{{ chai.image.url }}" alt="">
+    <h3>{{ chai.name }}</h3>
+</div>
+{% endfor %}
+
+
 {% endblock %}
