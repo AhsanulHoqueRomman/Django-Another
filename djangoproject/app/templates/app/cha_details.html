@@ -5,9 +5,29 @@ Cha Details Page
 {% endblock %}
 
 {% block content %}
-<h1>This is the Cha Details page.</h1>
+<div class="flex flex-col items-center justify-center min-h-screen text-center px-4">
 
-<h3>{{ chai.name }}</h3>
-<p>{{ chai.description }}</p>
+    <img src="{{ chai.image.url }}"
+         class="w-80 h-80 object-cover rounded-2xl shadow-xl mb-6">
+
+    <h2 class="text-3xl font-bold text-white mb-2">
+        {{ chai.name }}
+    </h2>
+
+    <p class="text-xl text-yellow-400 font-semibold mb-4">
+        ৳ {{ chai.price }}
+    </p>
+
+    <p class="text-gray-300 max-w-xl mb-6">
+        {{ chai.description }}
+    </p>
+
+    <a href="{% url 'app' %}">
+        <button class="px-6 py-2 bg-orange-700 hover:bg-orange-900 text-white rounded-xl transition">
+            ← Back
+        </button>
+    </a>
+
+</div>
 
 {% endblock %}

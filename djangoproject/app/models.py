@@ -15,6 +15,7 @@ class application(models.Model):
     date = models.DateTimeField(default=timezone.now)
     chaType = models.CharField(max_length=2,choices=CHA_TYPE_CHOICE)
     description = models.TextField(default='')
+    price = models.DecimalField(max_digits=10, decimal_places=2, default=0)
 
     def __str__(self):
         return self.name

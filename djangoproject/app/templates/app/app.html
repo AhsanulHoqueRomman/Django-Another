@@ -7,21 +7,24 @@ App Page
 {% block content %}
 <h1>This is the Cha page.</h1>
 
-<div class= "grid grid-cols-3 gap-1">
-{% for chai in cha  %}
-<div class="bg-blue-900 p-3 rounded-2xl">
-    <img class= "rounded-2xl shadow-2xl" src="{{ chai.image.url }}" alt="">
-    <h3 class= "text-2xl font-bold">{{ chai.name }}</h3>
-    <a href="{% url 'cha_details' chai.id %}">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-6">
+{% for chai in cha %}
+<div class="bg-blue-900 p-4 rounded-2xl shadow-lg hover:scale-105 transition duration-300 flex flex-col justify-between">
+  
+    <img class="rounded-xl h-48 w-full object-cover" src="{{ chai.image.url }}" alt="">
+    <div class="flex justify-between items-center mt-4">
+        <h3 class="text-xl font-bold text-white">{{ chai.name }}</h3>
+        <h2 class="text-lg font-semibold text-yellow-400">৳ {{ chai.price }}</h2>
+    </div>
+
+    <a href="{% url 'cha_details' chai.id %}" class="mt-4">
         <button
-        type ="button"
-        class="inline-flex items-center w-full justify-center text-white bg-orange-800 hover:bg-orange-950" 
-        >
-        {{chai.chaType }}- {{chai.id}}
+            class="w-full py-2 rounded-xl bg-orange-700 hover:bg-orange-900 text-white font-semibold transition">
+            View Details
         </button>
     </a>
+
 </div>
 {% endfor %}
-
 </div>
 {% endblock %}
