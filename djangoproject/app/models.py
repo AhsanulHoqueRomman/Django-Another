@@ -38,7 +38,7 @@ class chaReview(models.Model):
 
     cha = models.ForeignKey(Cha, on_delete= models.CASCADE, related_name='reviews')
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    rating = models.IntegerField(max_length=2, choices=rating_choice)
+    rating = models.IntegerField(choices=rating_choice)
     comment = models.TextField()
     date_added = models.DateTimeField(default=timezone.now)
 
@@ -64,7 +64,7 @@ class chaCertificate(models.Model):
     chai = models.OneToOneField(Cha, on_delete=models.CASCADE, related_name='certificate')
     certificate_number = models.CharField(max_length=100)
     issue_date = models.DateTimeField(default=timezone.now)
-    valid_till = models.DateTimeField
+    valid_till = models.DateTimeField(null=True, blank=True)
 
     def __str__(self):
-        return f'Certificate for {self.name.chai}'
+        return f'Certificate for {self.chai.name}'
