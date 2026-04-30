@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Cha
+from .models import Cha,store
 from django.shortcuts import get_object_or_404
 from .forms import ChaForm
 
@@ -17,5 +17,13 @@ def cha_store(request):
 
     if request.method == 'POST':
         form = ChaForm(request.POST) 
+        if form.is_valid():
+            cha_var = form.cleaned_data['cha'] 
+            stores = store.objects.filter(cha_varieties = cha_var)
+    
+    else:
+        form = ChaForm()
 
-    return render(request, 'app/cha_store.html', {'forms': forms})
+
+
+    return render(request, 'app/cha_store.html',{'stores': stores, 'form': form})

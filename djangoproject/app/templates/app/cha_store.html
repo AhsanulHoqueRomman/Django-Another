@@ -7,5 +7,20 @@ This is the Store Page.
 {% block content %}
 
 <h1>This is the form.</h1>
+<form  class ="bg-black" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Search Store</button>
+</form>
+
+{% if stores %}
+ <h2>Store Available:</h2>
+ <ul>
+    {% for store in stores %}
+    <li>{{ store.name }} <br> {{ store.location }}</li>
+    {% endfor %}
+ </ul>
+
+{% endif %}
 
 {% endblock %}
