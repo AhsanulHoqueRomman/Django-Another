@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 
 
 # Create your models here.
-class application(models.Model):
+class Cha(models.Model):
     CHA_TYPE_CHOICE =[
         ('RC','Rong Cha'),
         ('DC','Dudh Cha'),
@@ -36,7 +36,7 @@ class chaReview(models.Model):
         ('5','Excellent')
     ]
 
-    cha = models.ForeignKey(application, on_delete= models.CASCADE, related_name='reviews')
+    cha = models.ForeignKey(Cha, on_delete= models.CASCADE, related_name='reviews')
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     rating = models.IntegerField(max_length=2, choices=rating_choice)
     comment = models.TextField()
@@ -52,7 +52,7 @@ class chaReview(models.Model):
 class store(models.Model):
     name = models.CharField(max_length=100)
     location = models.CharField(max_length=100)
-    cha_varieties = models.ManyToManyField(application, related_name='stores')
+    cha_varieties = models.ManyToManyField(Cha, related_name='stores')
 
     def __str__(self):
         return self.name
@@ -61,7 +61,7 @@ class store(models.Model):
 #One to One
 
 class chaCertificate(models.Model):
-    chai = models.OneToOneField(application, on_delete=models.CASCADE, related_name='certificate')
+    chai = models.OneToOneField(Cha, on_delete=models.CASCADE, related_name='certificate')
     certificate_number = models.CharField(max_length=100)
     issue_date = models.DateTimeField(default=timezone.now)
     valid_till = models.DateTimeField
