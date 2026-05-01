@@ -30,6 +30,7 @@ job_city_choice = (
     ('Manikganj','Manikganj'),
     ('Rajshahi','Rajshahi'),
     ('Sylhet','Sylhet'),
+    ('Coxs Bazar','Coxs Bazar'),
 
 )
 
