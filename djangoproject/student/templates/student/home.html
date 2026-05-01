@@ -1,0 +1,32 @@
+{% extends "student/base.html" %}
+{% block left-content %}
+
+<form action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {% if form.non_field_errors %}
+        {% for error in form.non_field_errors %}
+        <p class="alert alert-danger my-3">{{error}}</p>
+        {% endfor %}
+    {% endif %}
+
+<label for="{{ form.name.id_for_label }}" class="form-label">
+    {{ form.name.label }}
+</label>
+
+{{ form.name }}
+
+</form>
+
+{% endblock left-content %}
+
+
+{% block right-content %}
+
+<h3 class="text-center mb-3">
+    <u>
+        <h4>
+            List Of Candidates:
+        </h4>
+    </u>
+</h3>
+{% endblock right-content %}
