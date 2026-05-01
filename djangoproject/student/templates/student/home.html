@@ -278,5 +278,12 @@
             List Of Candidates:
         </h4>
     </u>
+
 </h3>
+
+{% for candidate in candidates %}
+ <p>
+    {{ candidate.id }} - <a href="{% url 'candidate_detail' candidate.id %}">{{ candidate.name }}</a>
+ </p>
+{% endfor %}
 {% endblock right-content %}

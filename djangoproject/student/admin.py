@@ -5,4 +5,4 @@ from student.models import Profile
 @admin.register(Profile)
 
 class ProfileModelAdmin(admin.ModelAdmin):
-    list_display = [ 'name','dob','gender','locality','city','pin','Zilla','mobile','email','job_city','profile_image','my_file' ]
+    list_display = ['id', 'name','dob','gender','locality','city','pin','Zilla','mobile','email','job_city','profile_image','my_file' ]

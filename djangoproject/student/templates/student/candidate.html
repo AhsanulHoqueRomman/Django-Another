@@ -1,0 +1,20 @@
+{% extends "student/base.html" %}
+
+{% block left-content %}
+<h1>Candidate Details</h1>
+
+<p class="float-end">Applicant no: {{ candidates.id }}</p>
+<img src="{{ candidates.profile_image.url }}" alt="" class= "img-fluid img-thumbnail float-end mt-4" width="150" height ="150">
+<p> Name= {{ candidates.name }}</p>
+<p>Date of Birth : {{ candidates.dob }}</p>
+<p>Gender : {{ candidates.gender }}</p>
+<p>Address : {{ candidates.locality }}, {{ candidates.city }}, {{ candidates.Zilla }}-{{ candidates.pin }}</p>
+<p>Mobile No: {{ candidates.mobile }}</p>
+<p>Email address: {{ candidates.email }}</p>
+<p>Prefered Job Cities: {{ candidates.job_city|cut:"["|cut:"]"|cut:"'" }}</p>
+<p>Attachment : <a href="{{ candidates.my_file.url }}">Dowload File</a></p>
+<div class= "text-center">
+    <a href="/student/" class= "btn btn-danger">Back</a>
+</div>
+
+{% endblock %}

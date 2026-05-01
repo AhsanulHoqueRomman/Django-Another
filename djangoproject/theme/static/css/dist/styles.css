@@ -195,6 +195,9 @@
   .static {
     position: static;
   }
+  .float-end {
+    float: inline-end;
+  }
   .container {
     width: 100%;
     @media (width >= 40rem) {
