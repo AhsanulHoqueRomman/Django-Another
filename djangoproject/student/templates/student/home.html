@@ -174,7 +174,7 @@
     {% endif %}
 </div>
 
-<!--Email Section-->
+<!--Email Address Section-->
 
 <div class='mb-3'>
 
@@ -195,6 +195,76 @@
     {% endif %}
 </div>
 
+<!--Prefered Job Ciy(Checkboxes) Section-->
+
+<div class='mb-3'>
+
+    <label for="{{ form.job_city.id_for_label }}" class="form-label">
+        {{ form.job_city.label }}
+    </label>
+
+    {{ form.job_city }}
+
+    {% if form.job_city.errors %}
+        <div class="text-danger">
+            {% for error in form.job_city.errors %}
+            <p>
+                {{error}}
+            </p>
+            {% endfor %}
+        </div>
+    {% endif %}
+</div>
+
+<!--Profile Image Section-->
+
+<div class='mb-3'>
+
+    <label for="{{ form.profile_image.id_for_label }}" class="form-label">
+        {{ form.profile_image.label }}
+    </label>
+
+    {{ form.profile_image }}
+
+    {% if form.profile_image.help_text %}
+        <small class="text-muted d-block">
+            {{ form.profile_image.help_text }}
+        </small>
+    {% endif %}
+
+    {% if form.profile_image.errors %}
+        <div class="text-danger">
+            {% for error in form.profile_image.errors %}
+            <p>
+                {{error}}
+            </p>
+            {% endfor %}
+        </div>
+    {% endif %}
+</div>
+
+<!--My File Section-->
+
+<div class='mb-3'>
+
+    <label for="{{ form.my_file.id_for_label }}" class="form-label">
+        {{ form.my_file.label }}
+    </label>
+
+    {{ form.my_file }}
+
+    {% if form.my_file.errors %}
+        <div class="text-danger">
+            {% for error in form.my_file.errors %}
+            <p>
+                {{error}}
+            </p>
+            {% endfor %}
+        </div>
+    {% endif %}
+</div>
+
+<button type ="submit" class= "btn btn-primary">Submit</button>
 </form>
 
 {% endblock left-content %}

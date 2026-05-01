@@ -15,20 +15,13 @@ job_city_choice = (
     ('Cumilla','Cumilla'),
     ('Lakshmipur','Lakshmipur'),
     ('Noakhali','Noakhali'),
-    ('Feni','Feni'),
-    ('Chadpur','Chadpur'),
     ('Mymenshing','Mymenshing'),
-    ('Bhola','Bhola'),
     ('Barishal','Barishal'),
-    ('Patuakhali','Patuakhali'),
-    ('Gazipur','Gazipur'),
     ('Narshingdi','Narshingdi'),
     ('Madaripur','Madaripur'),
     ('Noagaon','Noahgaon'),
-    ('Pabna','Pabna'),
     ('Nator','Nator'),
     ('Narayanganj','Narayanganj'),
-    ('Manikganj','Manikganj'),
     ('Rajshahi','Rajshahi'),
     ('Sylhet','Sylhet'),
     ('Coxs Bazar','Coxs Bazar'),
@@ -38,8 +31,16 @@ job_city_choice = (
 class ProfileForm(forms.ModelForm):
     gender = forms.ChoiceField(
         choices=gender_choice,
-        widget=forms.RadioSelect
+        widget=forms.RadioSelect,
     )
+
+    job_city = forms.MultipleChoiceField(              #use MultipleChoiceField to select multiple option but in vertically like select option
+        choices=job_city_choice,
+        widget=forms.CheckboxSelectMultiple,            #use CheckboxSelectMultiple to select multiple also but in a different way.(better)
+        label ='Prefered Job Cities:',
+        help_text='Select One or More cities where you prefer to work'
+    )
+
     class Meta:
         model = Profile
         fields = [
@@ -64,7 +65,9 @@ class ProfileForm(forms.ModelForm):
             'locality': forms.TextInput(attrs={'class': 'form-control','placeholder':'Enter your area name' }),
             'city': forms.TextInput(attrs={'class': 'form-control','placeholder':'Enter your city name' }),
             'pin': forms.NumberInput(attrs={'class': 'form-control','placeholder':'Enter 6 digit PIN code' }),
-            'Zilla': forms.Select(attrs={'class':'form-select'})
+            'Zilla': forms.Select(attrs={'class':'form-select'}),
+            'mobile': forms.TextInput(attrs={'class': 'form-control','placeholder':'Enter your 11 digit Mobile Number'}),
+            'email' : forms.EmailInput(attrs={'class': 'form-control','placeholder':'Email address'}),
 
         }
 
